@@ -240,6 +240,7 @@ public with sharing class SFMCRetrieveDataViewsService {
                 continue;
             }
             Datetime eventDate = getDatetimeFromItems(value.eventdate);
+            String name = '[' + value.eventdate + '] ' + value.journeyname;
             results.add(new SFMC_Bounce__c(
                     Journey__r = new SFMC_Journey__c(Journey_Id__c = value.journeyid),
                     Subscriber_SFMC__r = new SFMC_Subscriber__c(Subscriber_Id__c = value.subscriberid),
@@ -252,7 +253,8 @@ public with sharing class SFMCRetrieveDataViewsService {
                     Email_Address__c = value.emailaddress,
                     Is_Unique__c = Boolean.valueOf(value.isunique),
                     Bounce_Category__c = value.bouncecategory,
-                    SMTP_Bounce_Reason__c = value.smtpbouncereason
+                    SMTP_Bounce_Reason__c = value.smtpbouncereason,
+                    Name = name.substring(0, Math.min(name.length(), 80))
             ));
         }
         upsert results External_Key__c;
@@ -267,6 +269,7 @@ public with sharing class SFMCRetrieveDataViewsService {
                 continue;
             }
             Datetime eventDate = getDatetimeFromItems(value.eventdate);
+            String name = '[' + value.eventdate + '] ' + value.journeyname;
             results.add(new SFMC_Click__c(
                     Journey__r = new SFMC_Journey__c(Journey_Id__c = value.journeyid),
                     Subscriber_SFMC__r = new SFMC_Subscriber__c(Subscriber_Id__c = value.subscriberid),
@@ -279,7 +282,8 @@ public with sharing class SFMCRetrieveDataViewsService {
                     Email_Address__c = value.emailaddress,
                     Is_Unique__c = Boolean.valueOf(value.isunique),
                     URL__c = value.url,
-                    Link_Content__c = value.linkcontent
+                    Link_Content__c = value.linkcontent,
+                    Name = name.substring(0, Math.min(name.length(), 80))
             ));
         }
         upsert results External_Key__c;
@@ -294,6 +298,7 @@ public with sharing class SFMCRetrieveDataViewsService {
                 continue;
             }
             Datetime eventDate = getDatetimeFromItems(value.eventdate);
+            String name = '[' + value.eventdate + '] ' + value.journeyname;
             results.add(new SFMC_Open__c(
                     Journey__r = new SFMC_Journey__c(Journey_Id__c = value.journeyid),
                     Subscriber_SFMC__r = new SFMC_Subscriber__c(Subscriber_Id__c = value.subscriberid),
@@ -304,7 +309,8 @@ public with sharing class SFMCRetrieveDataViewsService {
                     Subscriber_Id__c = value.subscriberid,
                     Subscriber_Key__c = value.subscriberkey,
                     Email_Address__c = value.emailaddress,
-                    Is_Unique__c = Boolean.valueOf(value.isunique)
+                    Is_Unique__c = Boolean.valueOf(value.isunique),
+                    Name = name.substring(0, Math.min(name.length(), 80))
             ));
         }
         upsert results External_Key__c;
@@ -319,6 +325,7 @@ public with sharing class SFMCRetrieveDataViewsService {
                 continue;
             }
             Datetime eventDate = getDatetimeFromItems(value.eventdate);
+            String name = '[' + value.eventdate + '] ' + value.journeyname;
             results.add(new SFMC_Sent__c(
                     Journey__r = new SFMC_Journey__c(Journey_Id__c = value.journeyid),
                     Subscriber_SFMC__r = new SFMC_Subscriber__c(Subscriber_Id__c = value.subscriberid),
@@ -328,7 +335,8 @@ public with sharing class SFMCRetrieveDataViewsService {
                     Activity_Name__c = value.activityname,
                     Subscriber_Id__c = value.subscriberid,
                     Subscriber_Key__c = value.subscriberkey,
-                    Email_Address__c = value.emailaddress
+                    Email_Address__c = value.emailaddress,
+                    Name = name.substring(0, Math.min(name.length(), 80))
             ));
         }
         upsert results External_Key__c;

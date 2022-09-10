@@ -22,7 +22,7 @@ public without sharing class SFMCBatchRetrieveDataViews implements Database.Batc
                 newService = new SFMCRetrieveDataViewsService(service.getFullDataLoad(), service.getIteration() + 1, 1);
                 Database.executeBatch(new SFMCBatchRetrieveDataViews(newService));
             }else{
-                repeat(new RepeatableController(), new SFMCScheduleRetrieveDataViews());
+                //repeat(new RepeatableController(), new SFMCScheduleRetrieveDataViews());
             }
         }
 
